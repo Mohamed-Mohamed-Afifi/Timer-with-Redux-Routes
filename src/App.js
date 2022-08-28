@@ -1,23 +1,29 @@
 // import logo from './logo.svg';
 import './App.css';
-import { useDispatch } from 'react-redux'
-// import Counter from './counter';
-import { Routes, Route, NavLink } from 'react-router-dom';
-import CountComponent from './CountComponent';
 import './timer.css'
-// import Timer from './Timer'
-import Routs from './Routes/Routes';
+// import { useDispatch } from 'react-redux'
+import { Routes, Route, NavLink } from 'react-router-dom';
+import NotFound from './NotFound'
+// import Routs from './Routes/Routes';
+import Home from './Home';
+import Counter from './Counter';
+import Timer from './Timer.';
+import { Fragment } from 'react';
+import Routers from './route';
+import Shardlayout from './Shardlayout';
+import Timertype from './Timertype';
 function App() {
-  const dispatch = useDispatch()
   return (
-    <div className="App">
-      <div className='container'>
-        <div className='seletor d-flex justify-content-center'>
-          <NavLink to='/Counter' className='px-2'>Counter</NavLink>
-          <NavLink to='/Timer'>Timer</NavLink>
-        </div>
-        <Routs />
-      </div>
+    <div className='container'>
+      <Routes>
+        <Route path='/' element={<Home />} >
+          {/* <Route index element={<Shardlayout />} /> */}
+          <Route path='Counter' element={<Counter />} />
+          <Route path='Timer' element={<Timer />} />
+          <Route path='Timer/:Timertype' element={<Timertype />} />
+          <Route path='*' element={<NotFound />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

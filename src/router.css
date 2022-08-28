@@ -3,10 +3,16 @@
     outline: 0;
 }
 
-.seletor a {
+a {
     color: #0dcaf0;
     padding: .5rem 2rem;
     background-color: #636588;
     text-decoration: none;
     font-weight: bold;
+}
+
+a :hover {
+    color: #141819;
+    transition: all .35s ease-in-out;
+
 }
